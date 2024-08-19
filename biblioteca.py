@@ -1,6 +1,6 @@
 class Autor:
-    def __init__(self,nome,nacionalidade):
-        self._nome = nome
+    def __init__(self,nomeA,nacionalidade):
+        self._nomeA = nomeA
         self._nacionalidade = nacionalidade
 
     
@@ -11,6 +11,8 @@ class Autor:
         return self._nacionalidade
 
 class Livro:
+    __livros = []  
+
     def __int__(self,titulo,autor,ISBN):
         self._titulo = titulo
         self._autor = autor 
@@ -36,6 +38,42 @@ class Livro:
         else:
             return False
 
-    def devolver(self):
-        self._disponivel = True
 
+    def adicionar(livro):
+        Livro.__livros.append(livro)
+        print(f"Livro '{livro.titulo}' adicionado ao sistema.")
+
+    def buscar(criterio, valor):
+        for livro in livro._livros:
+            if criterio == 'titulo' and valor.lower() in livro.titulo.lower():
+                return livro
+            elif criterio == 'autor' and valor.lower() in livro.autor.nome.lower():
+                return livro
+        return None
+    
+    def devolver(self, usuario):
+        if self in usuario.livros_emprestados:
+            self.__disponivel = True
+            usuario.livros_emprestados.remove(self)
+            print(f"livro '{self.titulo}' devolvido por {usuario.nome}.")
+        else:
+            print("não foi emprestado por este usuário.")
+
+class Usuario:
+
+    def __init__(self, nomeU, id , livros_emprestados):
+        self._nomeU = nomeU
+        self._id = id
+        self._livros_emprestados = livros_emprestados
+
+    def get_nome(self):
+        return self._nomeU
+    
+    def get_id(self):
+        return self._id
+    
+    def get_livros_emprestados(self):
+        return self._livros_emprestados
+
+    
+        
