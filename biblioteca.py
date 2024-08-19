@@ -77,3 +77,11 @@ class Usuario:
 
     
         
+def main():
+    while True:
+        print("\nEscolha uma opção:")
+        print("1. Adicionar Livro")
+        print("2. Buscar Livro")
+        print("3. Emprestar Livro")
+        print("4. Devolver Livro")
+        print("5. Sair")
