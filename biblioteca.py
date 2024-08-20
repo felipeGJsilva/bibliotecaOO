@@ -85,3 +85,25 @@ def main():
         print("3. Emprestar Livro")
         print("4. Devolver Livro")
         print("5. Sair")
+
+        escolha = input("Digite o número da opção: ")
+        if escolha == '1':
+            titulo = input("titulo do livro: ")
+            autor_nome = input("figite o nome do autor: ")
+            autor_nacionalidade = input("figite a nacionalidade do autor: ")
+            isbn = input("Digite o ISBN do livro: ")
+            autor = Autor(autor_nome, autor_nacionalidade)
+            livro = Livro(titulo,autor,isbn)
+            Livro.adicionar(livro)
+
+        elif escolha == '2':
+            criterio = input('criterio do livro: ').strip().lower()
+            valor =  input('valor do livro: ')
+            livro = Livro.buscar(criterio,valor)
+            if livro:
+                print("livro encontrado")
+            else:
+                print("livro não encontradp")
+
+if __name__ == "__main__":
+    main()
